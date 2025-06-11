@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated_date": "2025-06-10 20:48:14",
+    "generated_date": "2025-06-10 21:56:22",
     "source_file": "ACME.xlsx",
     "total_records": 1144
   },
@@ -52,49 +52,49 @@
       ]
     },
     {
-      "category": "Sentiment Analysis",
+      "category": "Sentiment Analysis (VADER)",
       "calculations": [
         {
           "metric": "Overall Sentiment Score",
-          "formula": "MEAN(TextBlob.sentiment.polarity for all text responses)",
-          "value": "0.1787",
-          "details": "Average polarity across 1182 analyzed responses (-1 to 1 scale)"
+          "formula": "MEAN(VADER.compound_score for all text responses)",
+          "value": "0.3671",
+          "details": "Average compound score across 762 analyzed responses (-1 to 1 scale)"
         },
         {
           "metric": "Positive Sentiment %",
-          "formula": "COUNT(responses WHERE polarity > 0.1) / COUNT(all responses) * 100",
-          "value": "57.8%",
-          "details": "683 out of 1182 responses"
+          "formula": "COUNT(responses WHERE compound >= 0.05) / COUNT(all responses) * 100",
+          "value": "66.1%",
+          "details": "503 out of 762 responses"
         },
         {
           "metric": "Neutral Sentiment %",
-          "formula": "COUNT(responses WHERE -0.1 <= polarity <= 0.1) / COUNT(all responses) * 100",
-          "value": "37.1%",
-          "details": "439 out of 1182 responses"
+          "formula": "COUNT(responses WHERE -0.05 < compound < 0.05) / COUNT(all responses) * 100",
+          "value": "23.8%",
+          "details": "181 out of 762 responses"
         },
         {
           "metric": "Negative Sentiment %",
-          "formula": "COUNT(responses WHERE polarity < -0.1) / COUNT(all responses) * 100",
-          "value": "5.1%",
-          "details": "60 out of 1182 responses"
+          "formula": "COUNT(responses WHERE compound <= -0.05) / COUNT(all responses) * 100",
+          "value": "10.1%",
+          "details": "76 out of 762 responses"
         }
       ],
       "column_details": [
         {
           "column": "What improvements would you like to see in these cultural funding programs?",
           "responses_analyzed": 762,
-          "avg_polarity": 0.19755648644588159,
-          "positive": 476,
-          "neutral": 242,
-          "negative": 44
+          "avg_compound": 0.3671,
+          "positive": 504,
+          "neutral": 181,
+          "negative": 77
         },
         {
           "column": "Do you have any additional ideas, concerns, or feedback you would like to share to help ACME better serve the public?",
           "responses_analyzed": 420,
-          "avg_polarity": 0.1443599031236087,
-          "positive": 207,
-          "neutral": 197,
-          "negative": 16
+          "avg_compound": 0.4016,
+          "positive": 294,
+          "neutral": 88,
+          "negative": 37
         }
       ]
     },
@@ -149,52 +149,52 @@
       "category": "Barriers to Participation",
       "calculations": [
         {
-          "metric": "Cost/Financial Barrier",
-          "formula": "COUNT(responses WHERE text CONTAINS ['cost', 'expensive', 'afford', 'money', 'financial', 'budget', 'funding']) / COUNT(responses with text) * 100",
-          "value": "0.3% (2 mentions)",
-          "details": "Keywords searched: cost, expensive, afford..."
+          "metric": "Cost of tickets or admission fees",
+          "formula": "COUNT(respondents who selected \"Cost of tickets or admission fees\") / COUNT(all barrier respondents) * 100",
+          "value": "68.5% (747 respondents)",
+          "details": "Direct count from multiple choice responses"
         },
         {
-          "metric": "Transportation Barrier",
-          "formula": "COUNT(responses WHERE text CONTAINS ['transport', 'parking', 'drive', 'bus', 'distance', 'travel']) / COUNT(responses with text) * 100",
-          "value": "0.3% (2 mentions)",
-          "details": "Keywords searched: transport, parking, drive..."
+          "metric": "Transportation / parking issues",
+          "formula": "COUNT(respondents who selected \"Transportation / parking issues\") / COUNT(all barrier respondents) * 100",
+          "value": "65.5% (715 respondents)",
+          "details": "Direct count from multiple choice responses"
         },
         {
-          "metric": "Awareness Barrier",
-          "formula": "COUNT(responses WHERE text CONTAINS ['know', 'aware', 'heard', 'information', 'communication', 'find out']) / COUNT(responses with text) * 100",
-          "value": "0.3% (2 mentions)",
-          "details": "Keywords searched: know, aware, heard..."
+          "metric": "Lack of awareness about events and programs",
+          "formula": "COUNT(respondents who selected \"Lack of awareness about events and programs\") / COUNT(all barrier respondents) * 100",
+          "value": "54.2% (591 respondents)",
+          "details": "Direct count from multiple choice responses"
         },
         {
-          "metric": "Time Barrier",
-          "formula": "COUNT(responses WHERE text CONTAINS ['time', 'schedule', 'busy', 'hours', 'when']) / COUNT(responses with text) * 100",
-          "value": "0.3% (2 mentions)",
-          "details": "Keywords searched: time, schedule, busy..."
+          "metric": "Location- Lack of nearby venues or events in my neighborhood",
+          "formula": "COUNT(respondents who selected \"Location- Lack of nearby venues or events in my neighborhood\") / COUNT(all barrier respondents) * 100",
+          "value": "43.4% (474 respondents)",
+          "details": "Direct count from multiple choice responses"
         },
         {
-          "metric": "Location Barrier",
-          "formula": "COUNT(responses WHERE text CONTAINS ['location', 'where', 'venue', 'place', 'far']) / COUNT(responses with text) * 100",
-          "value": "0.3% (2 mentions)",
-          "details": "Keywords searched: location, where, venue..."
+          "metric": "Limited diversity/ representation/ inclusion in events",
+          "formula": "COUNT(respondents who selected \"Limited diversity/ representation/ inclusion in events\") / COUNT(all barrier respondents) * 100",
+          "value": "35.7% (389 respondents)",
+          "details": "Direct count from multiple choice responses"
         },
         {
-          "metric": "Language Barrier",
-          "formula": "COUNT(responses WHERE text CONTAINS ['language', 'spanish', 'english', 'translate']) / COUNT(responses with text) * 100",
-          "value": "0.3% (2 mentions)",
-          "details": "Keywords searched: language, spanish, english..."
+          "metric": "The events don't match my interests",
+          "formula": "COUNT(respondents who selected \"The events don't match my interests\") / COUNT(all barrier respondents) * 100",
+          "value": "9.6% (105 respondents)",
+          "details": "Direct count from multiple choice responses"
         },
         {
-          "metric": "Childcare Barrier",
-          "formula": "COUNT(responses WHERE text CONTAINS ['child', 'kids', 'babysit', 'family']) / COUNT(responses with text) * 100",
-          "value": "0.3% (2 mentions)",
-          "details": "Keywords searched: child, kids, babysit..."
+          "metric": "Total Barrier Respondents",
+          "formula": "COUNT(respondents who answered barrier question)",
+          "value": "1091",
+          "details": "Number of people who provided barrier information"
         },
         {
-          "metric": "Accessibility Barrier",
-          "formula": "COUNT(responses WHERE text CONTAINS ['accessible', 'disability', 'wheelchair', 'ada']) / COUNT(responses with text) * 100",
-          "value": "0.3% (2 mentions)",
-          "details": "Keywords searched: accessible, disability, wheelchair..."
+          "metric": "Average Barriers per Respondent",
+          "formula": "SUM(all barrier selections) / COUNT(respondents)",
+          "value": "2.9",
+          "details": "Each respondent selected an average of 2.9 barriers"
         }
       ]
     },
@@ -203,21 +203,27 @@
       "calculations": [
         {
           "metric": "Applicant Dissatisfaction Rate",
-          "formula": "Based on comparative analysis of applicant feedback",
-          "value": "31%",
-          "details": "Approximated from sentiment analysis of applicant responses"
+          "formula": "COUNT(applicants who are somewhat/very dissatisfied) / COUNT(all applicants) * 100",
+          "value": "30.7%",
+          "details": "143 out of 466 applicants (57 somewhat + 86 very dissatisfied)"
         },
         {
           "metric": "Non-Applicant Dissatisfaction Rate",
-          "formula": "Based on comparative analysis of non-applicant feedback",
-          "value": "11%",
-          "details": "Approximated from sentiment analysis of non-applicant responses"
+          "formula": "COUNT(non-applicants who are dissatisfied) / COUNT(non-applicants) * 100",
+          "value": "11.7%",
+          "details": "Calculated from non-applicant sentiment responses"
         },
         {
           "metric": "Mid-Application Dropout Rate",
           "formula": "Estimated from incomplete application mentions",
           "value": "42%",
           "details": "Based on first-timer feedback mentioning form abandonment"
+        },
+        {
+          "metric": "Focus Group Volunteers",
+          "formula": "COUNT(respondents who provided email for focus groups)",
+          "value": "654",
+          "details": "501 said Yes, 432 said Maybe (933 total interested)"
         }
       ]
     },

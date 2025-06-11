@@ -3,7 +3,7 @@
     <h2 style="margin-bottom: 2rem;">Data Traceability & Calculation Documentation</h2>
     <p style="margin-bottom: 2rem;">
         This section provides full transparency on all calculations, formulas, and data sources used in this report. 
-        Generated on: 2025-06-10 20:48:14 | Source: ACME.xlsx | Total Records: 1144
+        Generated on: 2025-06-10 21:56:22 | Source: ACME.xlsx | Total Records: 1144
     </p>
 
     <div class="card" style="margin-bottom: 2rem;">
@@ -89,7 +89,7 @@
     </div>
     
     <div class="card" style="margin-bottom: 2rem;">
-        <h3 style="color: var(--primary-color); margin-bottom: 1rem;">Sentiment Analysis</h3>
+        <h3 style="color: var(--primary-color); margin-bottom: 1rem;">Sentiment Analysis (VADER)</h3>
         <div style="overflow-x: auto;">
             <table style="width: 100%; border-collapse: collapse;">
                 <thead>
@@ -104,30 +104,30 @@
     
                     <tr style="border-bottom: 1px solid #e5e7eb;">
                         <td style="padding: 0.75rem; font-weight: 500;">Overall Sentiment Score</td>
-                        <td style="padding: 0.75rem; font-family: monospace; font-size: 0.9rem; color: #6b7280;">MEAN(TextBlob.sentiment.polarity for all text responses)</td>
-                        <td style="padding: 0.75rem; font-weight: 600; color: var(--accent-color);">0.1787</td>
-                        <td style="padding: 0.75rem; font-size: 0.9rem; color: #6b7280;">Average polarity across 1182 analyzed responses (-1 to 1 scale)</td>
+                        <td style="padding: 0.75rem; font-family: monospace; font-size: 0.9rem; color: #6b7280;">MEAN(VADER.compound_score for all text responses)</td>
+                        <td style="padding: 0.75rem; font-weight: 600; color: var(--accent-color);">0.3671</td>
+                        <td style="padding: 0.75rem; font-size: 0.9rem; color: #6b7280;">Average compound score across 762 analyzed responses (-1 to 1 scale)</td>
                     </tr>
         
                     <tr style="border-bottom: 1px solid #e5e7eb;">
                         <td style="padding: 0.75rem; font-weight: 500;">Positive Sentiment %</td>
-                        <td style="padding: 0.75rem; font-family: monospace; font-size: 0.9rem; color: #6b7280;">COUNT(responses WHERE polarity > 0.1) / COUNT(all responses) * 100</td>
-                        <td style="padding: 0.75rem; font-weight: 600; color: var(--accent-color);">57.8%</td>
-                        <td style="padding: 0.75rem; font-size: 0.9rem; color: #6b7280;">683 out of 1182 responses</td>
+                        <td style="padding: 0.75rem; font-family: monospace; font-size: 0.9rem; color: #6b7280;">COUNT(responses WHERE compound >= 0.05) / COUNT(all responses) * 100</td>
+                        <td style="padding: 0.75rem; font-weight: 600; color: var(--accent-color);">66.1%</td>
+                        <td style="padding: 0.75rem; font-size: 0.9rem; color: #6b7280;">503 out of 762 responses</td>
                     </tr>
         
                     <tr style="border-bottom: 1px solid #e5e7eb;">
                         <td style="padding: 0.75rem; font-weight: 500;">Neutral Sentiment %</td>
-                        <td style="padding: 0.75rem; font-family: monospace; font-size: 0.9rem; color: #6b7280;">COUNT(responses WHERE -0.1 <= polarity <= 0.1) / COUNT(all responses) * 100</td>
-                        <td style="padding: 0.75rem; font-weight: 600; color: var(--accent-color);">37.1%</td>
-                        <td style="padding: 0.75rem; font-size: 0.9rem; color: #6b7280;">439 out of 1182 responses</td>
+                        <td style="padding: 0.75rem; font-family: monospace; font-size: 0.9rem; color: #6b7280;">COUNT(responses WHERE -0.05 < compound < 0.05) / COUNT(all responses) * 100</td>
+                        <td style="padding: 0.75rem; font-weight: 600; color: var(--accent-color);">23.8%</td>
+                        <td style="padding: 0.75rem; font-size: 0.9rem; color: #6b7280;">181 out of 762 responses</td>
                     </tr>
         
                     <tr style="border-bottom: 1px solid #e5e7eb;">
                         <td style="padding: 0.75rem; font-weight: 500;">Negative Sentiment %</td>
-                        <td style="padding: 0.75rem; font-family: monospace; font-size: 0.9rem; color: #6b7280;">COUNT(responses WHERE polarity < -0.1) / COUNT(all responses) * 100</td>
-                        <td style="padding: 0.75rem; font-weight: 600; color: var(--accent-color);">5.1%</td>
-                        <td style="padding: 0.75rem; font-size: 0.9rem; color: #6b7280;">60 out of 1182 responses</td>
+                        <td style="padding: 0.75rem; font-family: monospace; font-size: 0.9rem; color: #6b7280;">COUNT(responses WHERE compound <= -0.05) / COUNT(all responses) * 100</td>
+                        <td style="padding: 0.75rem; font-weight: 600; color: var(--accent-color);">10.1%</td>
+                        <td style="padding: 0.75rem; font-size: 0.9rem; color: #6b7280;">76 out of 762 responses</td>
                     </tr>
         
                 </tbody>
@@ -141,7 +141,7 @@
                     <tr style="background: #f3f4f6;">
                         <th style="padding: 0.5rem; text-align: left; font-size: 0.9rem;">Question</th>
                         <th style="padding: 0.5rem; text-align: center; font-size: 0.9rem;">Responses</th>
-                        <th style="padding: 0.5rem; text-align: center; font-size: 0.9rem;">Avg Polarity</th>
+                        <th style="padding: 0.5rem; text-align: center; font-size: 0.9rem;">Avg Compound</th>
                         <th style="padding: 0.5rem; text-align: center; font-size: 0.9rem;">Positive</th>
                         <th style="padding: 0.5rem; text-align: center; font-size: 0.9rem;">Neutral</th>
                         <th style="padding: 0.5rem; text-align: center; font-size: 0.9rem;">Negative</th>
@@ -152,19 +152,19 @@
                     <tr style="border-bottom: 1px solid #e5e7eb;">
                         <td style="padding: 0.5rem; font-size: 0.85rem; max-width: 300px;">What improvements would you like to see in these cultural fu...</td>
                         <td style="padding: 0.5rem; text-align: center;">762</td>
-                        <td style="padding: 0.5rem; text-align: center;">0.198</td>
-                        <td style="padding: 0.5rem; text-align: center; color: #10b981;">476</td>
-                        <td style="padding: 0.5rem; text-align: center; color: #6b7280;">242</td>
-                        <td style="padding: 0.5rem; text-align: center; color: #ef4444;">44</td>
+                        <td style="padding: 0.5rem; text-align: center;">0.367</td>
+                        <td style="padding: 0.5rem; text-align: center; color: #10b981;">504</td>
+                        <td style="padding: 0.5rem; text-align: center; color: #6b7280;">181</td>
+                        <td style="padding: 0.5rem; text-align: center; color: #ef4444;">77</td>
                     </tr>
             
                     <tr style="border-bottom: 1px solid #e5e7eb;">
                         <td style="padding: 0.5rem; font-size: 0.85rem; max-width: 300px;">Do you have any additional ideas, concerns, or feedback you ...</td>
                         <td style="padding: 0.5rem; text-align: center;">420</td>
-                        <td style="padding: 0.5rem; text-align: center;">0.144</td>
-                        <td style="padding: 0.5rem; text-align: center; color: #10b981;">207</td>
-                        <td style="padding: 0.5rem; text-align: center; color: #6b7280;">197</td>
-                        <td style="padding: 0.5rem; text-align: center; color: #ef4444;">16</td>
+                        <td style="padding: 0.5rem; text-align: center;">0.402</td>
+                        <td style="padding: 0.5rem; text-align: center; color: #10b981;">294</td>
+                        <td style="padding: 0.5rem; text-align: center; color: #6b7280;">88</td>
+                        <td style="padding: 0.5rem; text-align: center; color: #ef4444;">37</td>
                     </tr>
             
                 </tbody>
@@ -264,59 +264,59 @@
                 <tbody>
     
                     <tr style="border-bottom: 1px solid #e5e7eb;">
-                        <td style="padding: 0.75rem; font-weight: 500;">Cost/Financial Barrier</td>
-                        <td style="padding: 0.75rem; font-family: monospace; font-size: 0.9rem; color: #6b7280;">COUNT(responses WHERE text CONTAINS ['cost', 'expensive', 'afford', 'money', 'financial', 'budget', 'funding']) / COUNT(responses with text) * 100</td>
-                        <td style="padding: 0.75rem; font-weight: 600; color: var(--accent-color);">0.3% (2 mentions)</td>
-                        <td style="padding: 0.75rem; font-size: 0.9rem; color: #6b7280;">Keywords searched: cost, expensive, afford...</td>
+                        <td style="padding: 0.75rem; font-weight: 500;">Cost of tickets or admission fees</td>
+                        <td style="padding: 0.75rem; font-family: monospace; font-size: 0.9rem; color: #6b7280;">COUNT(respondents who selected "Cost of tickets or admission fees") / COUNT(all barrier respondents) * 100</td>
+                        <td style="padding: 0.75rem; font-weight: 600; color: var(--accent-color);">68.5% (747 respondents)</td>
+                        <td style="padding: 0.75rem; font-size: 0.9rem; color: #6b7280;">Direct count from multiple choice responses</td>
                     </tr>
         
                     <tr style="border-bottom: 1px solid #e5e7eb;">
-                        <td style="padding: 0.75rem; font-weight: 500;">Transportation Barrier</td>
-                        <td style="padding: 0.75rem; font-family: monospace; font-size: 0.9rem; color: #6b7280;">COUNT(responses WHERE text CONTAINS ['transport', 'parking', 'drive', 'bus', 'distance', 'travel']) / COUNT(responses with text) * 100</td>
-                        <td style="padding: 0.75rem; font-weight: 600; color: var(--accent-color);">0.3% (2 mentions)</td>
-                        <td style="padding: 0.75rem; font-size: 0.9rem; color: #6b7280;">Keywords searched: transport, parking, drive...</td>
+                        <td style="padding: 0.75rem; font-weight: 500;">Transportation / parking issues</td>
+                        <td style="padding: 0.75rem; font-family: monospace; font-size: 0.9rem; color: #6b7280;">COUNT(respondents who selected "Transportation / parking issues") / COUNT(all barrier respondents) * 100</td>
+                        <td style="padding: 0.75rem; font-weight: 600; color: var(--accent-color);">65.5% (715 respondents)</td>
+                        <td style="padding: 0.75rem; font-size: 0.9rem; color: #6b7280;">Direct count from multiple choice responses</td>
                     </tr>
         
                     <tr style="border-bottom: 1px solid #e5e7eb;">
-                        <td style="padding: 0.75rem; font-weight: 500;">Awareness Barrier</td>
-                        <td style="padding: 0.75rem; font-family: monospace; font-size: 0.9rem; color: #6b7280;">COUNT(responses WHERE text CONTAINS ['know', 'aware', 'heard', 'information', 'communication', 'find out']) / COUNT(responses with text) * 100</td>
-                        <td style="padding: 0.75rem; font-weight: 600; color: var(--accent-color);">0.3% (2 mentions)</td>
-                        <td style="padding: 0.75rem; font-size: 0.9rem; color: #6b7280;">Keywords searched: know, aware, heard...</td>
+                        <td style="padding: 0.75rem; font-weight: 500;">Lack of awareness about events and programs</td>
+                        <td style="padding: 0.75rem; font-family: monospace; font-size: 0.9rem; color: #6b7280;">COUNT(respondents who selected "Lack of awareness about events and programs") / COUNT(all barrier respondents) * 100</td>
+                        <td style="padding: 0.75rem; font-weight: 600; color: var(--accent-color);">54.2% (591 respondents)</td>
+                        <td style="padding: 0.75rem; font-size: 0.9rem; color: #6b7280;">Direct count from multiple choice responses</td>
                     </tr>
         
                     <tr style="border-bottom: 1px solid #e5e7eb;">
-                        <td style="padding: 0.75rem; font-weight: 500;">Time Barrier</td>
-                        <td style="padding: 0.75rem; font-family: monospace; font-size: 0.9rem; color: #6b7280;">COUNT(responses WHERE text CONTAINS ['time', 'schedule', 'busy', 'hours', 'when']) / COUNT(responses with text) * 100</td>
-                        <td style="padding: 0.75rem; font-weight: 600; color: var(--accent-color);">0.3% (2 mentions)</td>
-                        <td style="padding: 0.75rem; font-size: 0.9rem; color: #6b7280;">Keywords searched: time, schedule, busy...</td>
+                        <td style="padding: 0.75rem; font-weight: 500;">Location- Lack of nearby venues or events in my neighborhood</td>
+                        <td style="padding: 0.75rem; font-family: monospace; font-size: 0.9rem; color: #6b7280;">COUNT(respondents who selected "Location- Lack of nearby venues or events in my neighborhood") / COUNT(all barrier respondents) * 100</td>
+                        <td style="padding: 0.75rem; font-weight: 600; color: var(--accent-color);">43.4% (474 respondents)</td>
+                        <td style="padding: 0.75rem; font-size: 0.9rem; color: #6b7280;">Direct count from multiple choice responses</td>
                     </tr>
         
                     <tr style="border-bottom: 1px solid #e5e7eb;">
-                        <td style="padding: 0.75rem; font-weight: 500;">Location Barrier</td>
-                        <td style="padding: 0.75rem; font-family: monospace; font-size: 0.9rem; color: #6b7280;">COUNT(responses WHERE text CONTAINS ['location', 'where', 'venue', 'place', 'far']) / COUNT(responses with text) * 100</td>
-                        <td style="padding: 0.75rem; font-weight: 600; color: var(--accent-color);">0.3% (2 mentions)</td>
-                        <td style="padding: 0.75rem; font-size: 0.9rem; color: #6b7280;">Keywords searched: location, where, venue...</td>
+                        <td style="padding: 0.75rem; font-weight: 500;">Limited diversity/ representation/ inclusion in events</td>
+                        <td style="padding: 0.75rem; font-family: monospace; font-size: 0.9rem; color: #6b7280;">COUNT(respondents who selected "Limited diversity/ representation/ inclusion in events") / COUNT(all barrier respondents) * 100</td>
+                        <td style="padding: 0.75rem; font-weight: 600; color: var(--accent-color);">35.7% (389 respondents)</td>
+                        <td style="padding: 0.75rem; font-size: 0.9rem; color: #6b7280;">Direct count from multiple choice responses</td>
                     </tr>
         
                     <tr style="border-bottom: 1px solid #e5e7eb;">
-                        <td style="padding: 0.75rem; font-weight: 500;">Language Barrier</td>
-                        <td style="padding: 0.75rem; font-family: monospace; font-size: 0.9rem; color: #6b7280;">COUNT(responses WHERE text CONTAINS ['language', 'spanish', 'english', 'translate']) / COUNT(responses with text) * 100</td>
-                        <td style="padding: 0.75rem; font-weight: 600; color: var(--accent-color);">0.3% (2 mentions)</td>
-                        <td style="padding: 0.75rem; font-size: 0.9rem; color: #6b7280;">Keywords searched: language, spanish, english...</td>
+                        <td style="padding: 0.75rem; font-weight: 500;">The events don't match my interests</td>
+                        <td style="padding: 0.75rem; font-family: monospace; font-size: 0.9rem; color: #6b7280;">COUNT(respondents who selected "The events don't match my interests") / COUNT(all barrier respondents) * 100</td>
+                        <td style="padding: 0.75rem; font-weight: 600; color: var(--accent-color);">9.6% (105 respondents)</td>
+                        <td style="padding: 0.75rem; font-size: 0.9rem; color: #6b7280;">Direct count from multiple choice responses</td>
                     </tr>
         
                     <tr style="border-bottom: 1px solid #e5e7eb;">
-                        <td style="padding: 0.75rem; font-weight: 500;">Childcare Barrier</td>
-                        <td style="padding: 0.75rem; font-family: monospace; font-size: 0.9rem; color: #6b7280;">COUNT(responses WHERE text CONTAINS ['child', 'kids', 'babysit', 'family']) / COUNT(responses with text) * 100</td>
-                        <td style="padding: 0.75rem; font-weight: 600; color: var(--accent-color);">0.3% (2 mentions)</td>
-                        <td style="padding: 0.75rem; font-size: 0.9rem; color: #6b7280;">Keywords searched: child, kids, babysit...</td>
+                        <td style="padding: 0.75rem; font-weight: 500;">Total Barrier Respondents</td>
+                        <td style="padding: 0.75rem; font-family: monospace; font-size: 0.9rem; color: #6b7280;">COUNT(respondents who answered barrier question)</td>
+                        <td style="padding: 0.75rem; font-weight: 600; color: var(--accent-color);">1091</td>
+                        <td style="padding: 0.75rem; font-size: 0.9rem; color: #6b7280;">Number of people who provided barrier information</td>
                     </tr>
         
                     <tr style="border-bottom: 1px solid #e5e7eb;">
-                        <td style="padding: 0.75rem; font-weight: 500;">Accessibility Barrier</td>
-                        <td style="padding: 0.75rem; font-family: monospace; font-size: 0.9rem; color: #6b7280;">COUNT(responses WHERE text CONTAINS ['accessible', 'disability', 'wheelchair', 'ada']) / COUNT(responses with text) * 100</td>
-                        <td style="padding: 0.75rem; font-weight: 600; color: var(--accent-color);">0.3% (2 mentions)</td>
-                        <td style="padding: 0.75rem; font-size: 0.9rem; color: #6b7280;">Keywords searched: accessible, disability, wheelchair...</td>
+                        <td style="padding: 0.75rem; font-weight: 500;">Average Barriers per Respondent</td>
+                        <td style="padding: 0.75rem; font-family: monospace; font-size: 0.9rem; color: #6b7280;">SUM(all barrier selections) / COUNT(respondents)</td>
+                        <td style="padding: 0.75rem; font-weight: 600; color: var(--accent-color);">2.9</td>
+                        <td style="padding: 0.75rem; font-size: 0.9rem; color: #6b7280;">Each respondent selected an average of 2.9 barriers</td>
                     </tr>
         
                 </tbody>
@@ -341,16 +341,16 @@
     
                     <tr style="border-bottom: 1px solid #e5e7eb;">
                         <td style="padding: 0.75rem; font-weight: 500;">Applicant Dissatisfaction Rate</td>
-                        <td style="padding: 0.75rem; font-family: monospace; font-size: 0.9rem; color: #6b7280;">Based on comparative analysis of applicant feedback</td>
-                        <td style="padding: 0.75rem; font-weight: 600; color: var(--accent-color);">31%</td>
-                        <td style="padding: 0.75rem; font-size: 0.9rem; color: #6b7280;">Approximated from sentiment analysis of applicant responses</td>
+                        <td style="padding: 0.75rem; font-family: monospace; font-size: 0.9rem; color: #6b7280;">COUNT(applicants who are somewhat/very dissatisfied) / COUNT(all applicants) * 100</td>
+                        <td style="padding: 0.75rem; font-weight: 600; color: var(--accent-color);">30.7%</td>
+                        <td style="padding: 0.75rem; font-size: 0.9rem; color: #6b7280;">143 out of 466 applicants (57 somewhat + 86 very dissatisfied)</td>
                     </tr>
         
                     <tr style="border-bottom: 1px solid #e5e7eb;">
                         <td style="padding: 0.75rem; font-weight: 500;">Non-Applicant Dissatisfaction Rate</td>
-                        <td style="padding: 0.75rem; font-family: monospace; font-size: 0.9rem; color: #6b7280;">Based on comparative analysis of non-applicant feedback</td>
-                        <td style="padding: 0.75rem; font-weight: 600; color: var(--accent-color);">11%</td>
-                        <td style="padding: 0.75rem; font-size: 0.9rem; color: #6b7280;">Approximated from sentiment analysis of non-applicant responses</td>
+                        <td style="padding: 0.75rem; font-family: monospace; font-size: 0.9rem; color: #6b7280;">COUNT(non-applicants who are dissatisfied) / COUNT(non-applicants) * 100</td>
+                        <td style="padding: 0.75rem; font-weight: 600; color: var(--accent-color);">11.7%</td>
+                        <td style="padding: 0.75rem; font-size: 0.9rem; color: #6b7280;">Calculated from non-applicant sentiment responses</td>
                     </tr>
         
                     <tr style="border-bottom: 1px solid #e5e7eb;">
@@ -358,6 +358,13 @@
                         <td style="padding: 0.75rem; font-family: monospace; font-size: 0.9rem; color: #6b7280;">Estimated from incomplete application mentions</td>
                         <td style="padding: 0.75rem; font-weight: 600; color: var(--accent-color);">42%</td>
                         <td style="padding: 0.75rem; font-size: 0.9rem; color: #6b7280;">Based on first-timer feedback mentioning form abandonment</td>
+                    </tr>
+        
+                    <tr style="border-bottom: 1px solid #e5e7eb;">
+                        <td style="padding: 0.75rem; font-weight: 500;">Focus Group Volunteers</td>
+                        <td style="padding: 0.75rem; font-family: monospace; font-size: 0.9rem; color: #6b7280;">COUNT(respondents who provided email for focus groups)</td>
+                        <td style="padding: 0.75rem; font-weight: 600; color: var(--accent-color);">654</td>
+                        <td style="padding: 0.75rem; font-size: 0.9rem; color: #6b7280;">501 said Yes, 432 said Maybe (933 total interested)</td>
                     </tr>
         
                 </tbody>
@@ -405,7 +412,8 @@
             <i class="fas fa-info-circle"></i> Data Quality Notes
         </h4>
         <ul style="color: #78350f; font-size: 0.95rem;">
-            <li>Sentiment analysis uses TextBlob with polarity threshold of ±0.1 for classification</li>
+            <li>Sentiment analysis uses VADER (Valence Aware Dictionary and sEntiment Reasoner) which is optimized for social media text and survey responses</li>
+            <li>VADER compound scores: ≥ 0.05 = positive, ≤ -0.05 = negative, between = neutral</li>
             <li>Program awareness is based on case-insensitive keyword matching in text responses</li>
             <li>Barrier analysis uses keyword clustering to identify themes in open-ended responses</li>
             <li>Some metrics (applicant journey, district-level) are approximations based on available data patterns</li>
