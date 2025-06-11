@@ -1,0 +1,42 @@
+TEXT COLUMNS:
+  -  How would you describe your role or relationship with Austin’s creative community? (Select all that apply) 
+  - Which types of arts and culture experiences do you most enjoy? (Select all that apply.) 
+  - Which Austin-based venues or cultural spaces do you frequently visit for arts, culture and entertainment? 
+  - How do you typically learn about arts, music, and cultural events in Austin? (Select all that apply.) 
+  - What barriers, if any, prevent you from participating in arts and culture events in Austin? (Select all that apply.)
+  - What do you believe are the biggest challenges facing Austin’s arts, culture, and music scene? (Select up to 3) 
+  - Austin's creative community has built a strong foundation of existing organizations that informs ACME's goals and mission. How do you believe ACME should better support these organizations and cul...
+  - What type of cultural arts or entertainment opportunities would you like to see more of in Austin? 
+  - Prior to this survey, were you aware of the following programs administered by the City of Austin/ACME? 
+(Select all that you are aware of; checkboxes for each program) 
+  - If yes, please specify which program.
+  - What improvements would you like to see in these cultural funding programs?
+  - What barriers do you or your community face in accessing support or services related to arts, culture, music, and entertainment? 
+  - What should ACME prioritize as its top goals over the next five years? (Select up to 3) 
+  - What outcomes or impacts would you most like to see from ACME's work? (Select up to 3) 
+  - What kinds of programs or services would you like ACME to offer that currently do not exist or are underrepresented? 
+  - How would you like to stay informed and involved with ACME initiatives and planning efforts? (Select all that apply) 
+  - If yes, please include your email address below.
+  - Do you have any additional ideas, concerns, or feedback you would like to share to help ACME better serve the public? 
+
+CATEGORICAL COLUMNS:
+  - Email
+  - Language
+  - What is your preferred language for receiving information and participating in discussions?
+  - What zip code do you reside in?
+  - What Austin City Council District do you live in?
+  - Cultural funding grant applicants are eligible to apply within Austin’s Extraterritorial Jurisdiction. Do you live within any of the counties below?
+  - How often do you attend or participate in arts, cultural, or entertainment events in Austin? 
+  - How important is it to you that Austin preserves and supports its local arts, culture, music scene and historic character? 
+  - Do you feel that all Austin residents have equal access to arts, cultural, music, and entertainment opportunities? 
+  - Have you ever applied for or received funding from any of these programs?
+  - How would you rate your level of satisfaction with these programs overall? 
+  - How accessible do you think these programs are for historically underrepresented artists, organizations, and communities? 
+  - What values do you believe should guide ACME’s mission and vision? (Select up to 3) 
+  - Would you be interested in participating in focus groups or community discussions to help shape policies and initiatives supporting Austin’s creative scene? 
+  - Would you like to participate in our upcoming focus groups to discuss the future of ACME Cultural Funding programs?
+
+NUMERIC COLUMNS:
+  - ID
+  - Start time
+  - Completion time

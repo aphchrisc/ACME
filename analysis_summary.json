@@ -1,0 +1,16 @@
+{
+  "total_responses": 1144,
+  "sentiment_summary": {
+    "improvements": {
+      "positive_rate": 66.14173228346458,
+      "negative_rate": 10.104986876640421,
+      "avg_sentiment": 0.3671292650918636
+    },
+    "support_organizations": {
+      "positive_rate": 70.18561484918794,
+      "negative_rate": 8.816705336426914,
+      "avg_sentiment": 0.4015547563805105
+    }
+  },
+  "key_themes": {}
+}

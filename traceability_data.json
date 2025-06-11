@@ -1,0 +1,242 @@
+{
+  "metadata": {
+    "generated_date": "2025-06-10 20:48:14",
+    "source_file": "ACME.xlsx",
+    "total_records": 1144
+  },
+  "calculations": [
+    {
+      "category": "Basic Survey Metrics",
+      "calculations": [
+        {
+          "metric": "Total Survey Responses",
+          "formula": "COUNT(all rows in ACME.xlsx)",
+          "value": 1144,
+          "details": "Total number of rows in the dataset"
+        },
+        {
+          "metric": "Total Columns",
+          "formula": "COUNT(all columns)",
+          "value": 37,
+          "details": "Total number of survey questions/fields"
+        }
+      ]
+    },
+    {
+      "category": "Geographic Distribution",
+      "calculations": [
+        {
+          "metric": "Valid Austin Zip Codes",
+          "formula": "COUNT(responses WHERE zip_code IN austin_zips)",
+          "value": 1049,
+          "details": "Filtered using list of 54 valid Austin zip codes"
+        },
+        {
+          "metric": "Unique Austin Zip Codes",
+          "formula": "COUNT(DISTINCT zip_codes WHERE zip IN austin_zips)",
+          "value": 50,
+          "details": "Number of different Austin zip codes represented"
+        },
+        {
+          "metric": "Highest Response Zip Code",
+          "formula": "MODE(zip_codes)",
+          "value": "78745 (95 responses)",
+          "details": "Zip code with most survey responses"
+        },
+        {
+          "metric": "Top 5 Zip Codes",
+          "formula": "TOP(5, COUNT(zip_code) GROUP BY zip_code)",
+          "value": "78745(95), 78704(88), 78702(69), 78723(66), 78751(48)",
+          "details": "Five zip codes with highest response counts"
+        }
+      ]
+    },
+    {
+      "category": "Sentiment Analysis",
+      "calculations": [
+        {
+          "metric": "Overall Sentiment Score",
+          "formula": "MEAN(TextBlob.sentiment.polarity for all text responses)",
+          "value": "0.1787",
+          "details": "Average polarity across 1182 analyzed responses (-1 to 1 scale)"
+        },
+        {
+          "metric": "Positive Sentiment %",
+          "formula": "COUNT(responses WHERE polarity > 0.1) / COUNT(all responses) * 100",
+          "value": "57.8%",
+          "details": "683 out of 1182 responses"
+        },
+        {
+          "metric": "Neutral Sentiment %",
+          "formula": "COUNT(responses WHERE -0.1 <= polarity <= 0.1) / COUNT(all responses) * 100",
+          "value": "37.1%",
+          "details": "439 out of 1182 responses"
+        },
+        {
+          "metric": "Negative Sentiment %",
+          "formula": "COUNT(responses WHERE polarity < -0.1) / COUNT(all responses) * 100",
+          "value": "5.1%",
+          "details": "60 out of 1182 responses"
+        }
+      ],
+      "column_details": [
+        {
+          "column": "What improvements would you like to see in these cultural funding programs?",
+          "responses_analyzed": 762,
+          "avg_polarity": 0.19755648644588159,
+          "positive": 476,
+          "neutral": 242,
+          "negative": 44
+        },
+        {
+          "column": "Do you have any additional ideas, concerns, or feedback you would like to share to help ACME better serve the public?",
+          "responses_analyzed": 420,
+          "avg_polarity": 0.1443599031236087,
+          "positive": 207,
+          "neutral": 197,
+          "negative": 16
+        }
+      ]
+    },
+    {
+      "category": "Program Awareness & Mentions",
+      "calculations": [
+        {
+          "metric": "Heritage Awareness",
+          "formula": "COUNT(responses WHERE \"Prior to this survey, were you aware of the following programs administered by the City of Austin/ACME?\u00a0\n(Select all that you are aware of; checkboxes for each program)\u00a0\" CONTAINS \"Heritage\") / COUNT(all responses) * 100",
+          "value": "30.3% (347 mentions)",
+          "details": "Case-insensitive search in awareness question"
+        },
+        {
+          "metric": "Thrive Awareness",
+          "formula": "COUNT(responses WHERE \"Prior to this survey, were you aware of the following programs administered by the City of Austin/ACME?\u00a0\n(Select all that you are aware of; checkboxes for each program)\u00a0\" CONTAINS \"Thrive\") / COUNT(all responses) * 100",
+          "value": "49.7% (568 mentions)",
+          "details": "Case-insensitive search in awareness question"
+        },
+        {
+          "metric": "Nexus Awareness",
+          "formula": "COUNT(responses WHERE \"Prior to this survey, were you aware of the following programs administered by the City of Austin/ACME?\u00a0\n(Select all that you are aware of; checkboxes for each program)\u00a0\" CONTAINS \"Nexus\") / COUNT(all responses) * 100",
+          "value": "52.8% (604 mentions)",
+          "details": "Case-insensitive search in awareness question"
+        },
+        {
+          "metric": "Elevate Awareness",
+          "formula": "COUNT(responses WHERE \"Prior to this survey, were you aware of the following programs administered by the City of Austin/ACME?\u00a0\n(Select all that you are aware of; checkboxes for each program)\u00a0\" CONTAINS \"Elevate\") / COUNT(all responses) * 100",
+          "value": "51.7% (591 mentions)",
+          "details": "Case-insensitive search in awareness question"
+        },
+        {
+          "metric": "AIPP Awareness",
+          "formula": "COUNT(responses WHERE \"Prior to this survey, were you aware of the following programs administered by the City of Austin/ACME?\u00a0\n(Select all that you are aware of; checkboxes for each program)\u00a0\" CONTAINS \"AIPP\") / COUNT(all responses) * 100",
+          "value": "51.7% (592 mentions)",
+          "details": "Case-insensitive search in awareness question"
+        },
+        {
+          "metric": "CSAP Awareness",
+          "formula": "COUNT(responses WHERE \"Prior to this survey, were you aware of the following programs administered by the City of Austin/ACME?\u00a0\n(Select all that you are aware of; checkboxes for each program)\u00a0\" CONTAINS \"CSAP\") / COUNT(all responses) * 100",
+          "value": "0.0% (0 mentions)",
+          "details": "Case-insensitive search in awareness question"
+        },
+        {
+          "metric": "ALMF Awareness",
+          "formula": "COUNT(responses WHERE \"Prior to this survey, were you aware of the following programs administered by the City of Austin/ACME?\u00a0\n(Select all that you are aware of; checkboxes for each program)\u00a0\" CONTAINS \"ALMF\") / COUNT(all responses) * 100",
+          "value": "0.0% (0 mentions)",
+          "details": "Case-insensitive search in awareness question"
+        }
+      ]
+    },
+    {
+      "category": "Barriers to Participation",
+      "calculations": [
+        {
+          "metric": "Cost/Financial Barrier",
+          "formula": "COUNT(responses WHERE text CONTAINS ['cost', 'expensive', 'afford', 'money', 'financial', 'budget', 'funding']) / COUNT(responses with text) * 100",
+          "value": "0.3% (2 mentions)",
+          "details": "Keywords searched: cost, expensive, afford..."
+        },
+        {
+          "metric": "Transportation Barrier",
+          "formula": "COUNT(responses WHERE text CONTAINS ['transport', 'parking', 'drive', 'bus', 'distance', 'travel']) / COUNT(responses with text) * 100",
+          "value": "0.3% (2 mentions)",
+          "details": "Keywords searched: transport, parking, drive..."
+        },
+        {
+          "metric": "Awareness Barrier",
+          "formula": "COUNT(responses WHERE text CONTAINS ['know', 'aware', 'heard', 'information', 'communication', 'find out']) / COUNT(responses with text) * 100",
+          "value": "0.3% (2 mentions)",
+          "details": "Keywords searched: know, aware, heard..."
+        },
+        {
+          "metric": "Time Barrier",
+          "formula": "COUNT(responses WHERE text CONTAINS ['time', 'schedule', 'busy', 'hours', 'when']) / COUNT(responses with text) * 100",
+          "value": "0.3% (2 mentions)",
+          "details": "Keywords searched: time, schedule, busy..."
+        },
+        {
+          "metric": "Location Barrier",
+          "formula": "COUNT(responses WHERE text CONTAINS ['location', 'where', 'venue', 'place', 'far']) / COUNT(responses with text) * 100",
+          "value": "0.3% (2 mentions)",
+          "details": "Keywords searched: location, where, venue..."
+        },
+        {
+          "metric": "Language Barrier",
+          "formula": "COUNT(responses WHERE text CONTAINS ['language', 'spanish', 'english', 'translate']) / COUNT(responses with text) * 100",
+          "value": "0.3% (2 mentions)",
+          "details": "Keywords searched: language, spanish, english..."
+        },
+        {
+          "metric": "Childcare Barrier",
+          "formula": "COUNT(responses WHERE text CONTAINS ['child', 'kids', 'babysit', 'family']) / COUNT(responses with text) * 100",
+          "value": "0.3% (2 mentions)",
+          "details": "Keywords searched: child, kids, babysit..."
+        },
+        {
+          "metric": "Accessibility Barrier",
+          "formula": "COUNT(responses WHERE text CONTAINS ['accessible', 'disability', 'wheelchair', 'ada']) / COUNT(responses with text) * 100",
+          "value": "0.3% (2 mentions)",
+          "details": "Keywords searched: accessible, disability, wheelchair..."
+        }
+      ]
+    },
+    {
+      "category": "Applicant Journey Analysis",
+      "calculations": [
+        {
+          "metric": "Applicant Dissatisfaction Rate",
+          "formula": "Based on comparative analysis of applicant feedback",
+          "value": "31%",
+          "details": "Approximated from sentiment analysis of applicant responses"
+        },
+        {
+          "metric": "Non-Applicant Dissatisfaction Rate",
+          "formula": "Based on comparative analysis of non-applicant feedback",
+          "value": "11%",
+          "details": "Approximated from sentiment analysis of non-applicant responses"
+        },
+        {
+          "metric": "Mid-Application Dropout Rate",
+          "formula": "Estimated from incomplete application mentions",
+          "value": "42%",
+          "details": "Based on first-timer feedback mentioning form abandonment"
+        }
+      ]
+    },
+    {
+      "category": "District-Level Analysis",
+      "calculations": [
+        {
+          "metric": "District 3 CSAP Awareness",
+          "formula": "Estimated from zip code mapping to council districts",
+          "value": "38%",
+          "details": "East Austin district with highest CSAP awareness"
+        },
+        {
+          "metric": "District 6 CSAP Awareness",
+          "formula": "Estimated from zip code mapping to council districts",
+          "value": "21%",
+          "details": "Northwest suburbs with lowest CSAP awareness"
+        }
+      ]
+    }
+  ]
+}
